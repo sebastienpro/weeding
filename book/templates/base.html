@@ -1,0 +1,74 @@
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {# The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags #}
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mariage</title>
+
+    {% bootstrap_css %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.min.css"
+          rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.css"
+          rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    {% bootstrap_javascript %}
+    {% block extra_css %}
+    {% endblock %}
+    {% block extra_js %}
+    {% endblock %}
+</head>
+
+
+<body>
+
+<div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">Mariage</span>
+
+        </div>
+        <div id="navbar-main" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="{% url "home" %}">Liste des Pages</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    {% bootstrap_messages %}
+    <div class="row">
+        {% block sized_content %}
+            <div class="col-xs-10 col-xs-offset-1 main">
+                <div class="row">
+                    {% block title %}{% endblock %}
+                    <div class="text-right">
+                        <span class="btn-group" role="group">
+                                {% block contextual_actions %}{% endblock %}
+                        </span>
+                    </div>
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

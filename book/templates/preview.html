@@ -1,0 +1,23 @@
+<html>
+<table width="900" style="font-family:tahoma, geneva, sans-serif;">
+    <tr>
+        <td width="300"><div style="box-shadow: 2px 2px 2px 2px #337ab7;"><img src="{{ image1 }}" width="300"></div></td>
+        <td style="text-align: center"><h1>{{ page.title }}</h1></td>
+    </tr>
+    <tr height="20"><td colspan="2"></td></tr>
+    <tr>
+        <td colspan="2">
+            <table width="100%">
+                <tr>
+                    <td width="80"></td>
+                    <td>{{ page.content | safe }}</td>
+                    <td width="300" valign="bottom">
+                        <img src="{{ image2 }}" width="300">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td colspan="2" style="text-align: center; color:#337ab7; font-size: 30px">{{ page.name }}</td></tr>
+</table>
+</html>
