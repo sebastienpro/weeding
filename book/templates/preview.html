@@ -1,18 +1,20 @@
 <html>
 <table width="900" style="font-family:tahoma, geneva, sans-serif;">
     <tr>
-        <td width="300"><div style="box-shadow: 2px 2px 2px 2px #337ab7;"><img src="{{ image1 }}" width="300"></div></td>
-        <td style="text-align: center"><h1>{{ page.title }}</h1></td>
+        <td width="300"><img style="border-radius: 25px;" src="{{ image1 }}" width="300"></td>
+        <td style="text-align: center"><div style="border-radius: 25px;border: 2px solid #337ab7;"><h1>{{ page.title }}</h1></div></td>
     </tr>
     <tr height="20"><td colspan="2"></td></tr>
     <tr>
         <td colspan="2">
             <table width="100%">
                 <tr>
-                    <td width="80"></td>
-                    <td>{{ page.content | safe }}</td>
-                    <td width="300" valign="bottom">
-                        <img src="{{ image2 }}" width="300">
+                    <td width="10"></td>
+                    <td>
+                        <div style="padding-left: 10px">{{ page.content | safe }}</div>
+                    </td>
+                    <td width="400" valign="middle">
+                        <img style="border-radius: 25px;" src="/media/{{ image2 }}" width="400">
                     </td>
                 </tr>
             </table>
