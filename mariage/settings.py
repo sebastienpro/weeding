@@ -25,7 +25,7 @@ SECRET_KEY = 'cjh=@4y64q4n$eryboe6v+ml#kj*28@^fv-%k*xigrof*c^!-u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mariage.antoine-marion.top"]
 
 
 # Application definition
