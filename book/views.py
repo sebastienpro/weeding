@@ -8,12 +8,11 @@ from book.forms import PageForm
 from book.models import Page
 from django.shortcuts import render, redirect
 from mariage import settings
-from weasyprint import HTML, CSS
 
 
 def home(request):
     pages = Page.objects.all().order_by("-pk")
-    page_size = CSS(string='@page { size: A4; margin: 1cm }')
+    #page_size = CSS(string='@page { size: A4; margin: 1cm }')
     #HTML('http://127.0.0.1:8000/preview/25/').write_pdf(os.path.join(settings.STATIC_ROOT, "pdfs","test.pdf"), stylesheets=[page_size])
     #pdfkit.from_url('http://127.0.0.1:8000/preview/25/', os.path.join(settings.STATIC_ROOT, "pdfs","test.pdf"))
     return render(request, "home.html", {'pages': pages})

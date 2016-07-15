@@ -1,0 +1,10 @@
+version: '2'
+services:
+
+  mariage:
+    build: .
+    ports:
+      - "8000"
+    environment:
+      - VIRTUAL_HOST=stage-api.woosmap.com
+    command: sh ./startup.sh
