@@ -27,3 +27,6 @@ class Page(models.Model):
     content = RichTextField()
     image1 = models.ImageField(upload_to=path_and_rename, null=True, default=None)
     image2 = models.ImageField(upload_to=path_and_rename, null=True, default=None)
+
+    def __unicode__(self):
+        return self.name+" / "+self.title
