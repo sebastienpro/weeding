@@ -27,7 +27,7 @@
 
                 <div class="jumbotron col-sm-11 col-md-11">
                 <div class="container">
-                    <div class="form-group">
+                    <div class="col-sm-6 col-md-6">
                         <div class="col-sm-2 col-md-2" style="color:#337ab7">Première Image:</div>
                         <div class="col-sm-4 col-md-4">
                         {% if form.image1.value %}
@@ -40,7 +40,7 @@
                         {% endif %}
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="col-sm-6 col-md-6">
                         <div class="col-sm-2 col-md-2" style="color:#337ab7">Seconde Image:</div>
                         <div class="col-sm-4 col-md-4">
                         {% if form.image2.value %}
@@ -49,7 +49,6 @@
                             <input class="" id="id_image2" name="image2" title="" type="file" value="Changer">
                             </label>
                         {% else %}
-                            <label for="id_image2"><strong>Choisir une image</strong></label>
                             <input class="" id="id_image2" name="image2" title="" type="file">
                         {% endif %}
                         </div>
