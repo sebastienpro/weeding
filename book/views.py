@@ -59,7 +59,6 @@ def _resize_image(image):
     new_image = image.name.replace("images/", "resized/")
     pil_image = Image.open(image.file)
     pil_image.thumbnail((600,600), PIL.Image.ANTIALIAS)
-    #pil_image = pil_image.filter(ImageFilter.SMOOTH)
     pil_image.save(os.path.join('./media/', new_image))
     return os.path.join(settings.MEDIA_URL, new_image)
 
