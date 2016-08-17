@@ -32,9 +32,10 @@ class Page(models.Model):
     @property
     def pdf_file(self):
         pdf_path = os.path.join(settings.MEDIA_ROOT, "pdfs", str(self.pk)+".pdf")
+        pdf_url = os.path.join(settings.MEDIA_URL, "pdfs", str(self.pk)+".pdf")
 
         if os.path.exists(pdf_path):
-            return pdf_path
+            return pdf_url
         else:
             return None
 
