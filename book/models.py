@@ -2,6 +2,7 @@ import os
 from uuid import uuid4
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.conf import settings
 
 
 def path_and_rename(instance, filename):
@@ -27,6 +28,15 @@ class Page(models.Model):
     content = RichTextField()
     image1 = models.ImageField(upload_to=path_and_rename, null=True, default=None)
     image2 = models.ImageField(upload_to=path_and_rename, null=True, default=None)
+
+    @property
+    def pdf_file(self):
+        pdf_path = os.path.join(settings.MEDIA_ROOT, "pdfs", str(self.pk)+".pdf")
+
+        if os.path.exists(pdf_path):
+            return pdf_path
+        else:
+            return None
 
     def __unicode__(self):
         return self.name+" / "+self.title

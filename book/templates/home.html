@@ -22,6 +22,11 @@
                             <tr>
                                 <td style="text-align: center;width:40px;"><a href="{% url "preview" page.pk %}">{% bootstrap_icon "eye-open" %}</a></td>
                                 <td style="text-align: center;width:40px;"><a href="{% url "page_edit" page.pk %}">{% bootstrap_icon "pencil" %}</a></td>
+                                {%  if page.pdf_file %}
+                                    <td style="text-align: center;width:40px;"><a href="{{ page.pdf_file }}">{% bootstrap_icon "cloud-download" %}</a></td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
                                 <td><b>{{ page.name }}</b> / {{ page.title }}</td>
                             </tr>
                         {% endfor %}
