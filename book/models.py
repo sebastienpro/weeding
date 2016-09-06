@@ -33,9 +33,13 @@ class Page(models.Model):
     def pdf_file(self):
         pdf_path = os.path.join(settings.MEDIA_ROOT, "pdfs", str(self.pk)+".pdf")
         pdf_url = os.path.join(settings.MEDIA_URL, "pdfs", str(self.pk)+".pdf")
+        png_path = os.path.join(settings.MEDIA_ROOT, "pngs", str(self.pk)+".png")
+        png_url = os.path.join(settings.MEDIA_URL, "pngs", str(self.pk) + ".png")
 
         if os.path.exists(pdf_path):
             return pdf_url
+        elif os.path.exists(png_path):
+            return png_url
         else:
             return None
 
