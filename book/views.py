@@ -12,7 +12,7 @@ from mariage import settings
 
 def home(request):
     pages = Page.objects.all().order_by("-pk")
-    return render(request, "home.html", {'pages': pages})
+    return render(request, "home.html", {'pages': pages, 'menu': 'home'})
 
 
 def add_page(request):
@@ -51,9 +51,8 @@ def page_edit(request, page_id):
 
 def preview(request, page_id):
     page = Page.objects.get(pk=page_id)
-    #new_image1_url = _resize_image(page.image1)
-    #new_image2_url = _resize_image(page.image2)
     return render(request, "preview.html", {'page': page, 'image1': page.image1, 'image2': page.image2})
+
 
 def _resize_image(image):
     new_image = image.name.replace("images/", "resized/")
@@ -61,6 +60,11 @@ def _resize_image(image):
     pil_image.thumbnail((600,600), PIL.Image.ANTIALIAS)
     pil_image.save(os.path.join('./media/', new_image))
     return os.path.join(settings.MEDIA_URL, new_image)
+
+
+def photos(request):
+    return render(request, "photos.html", {'menu': 'photos'})
+
 
 def _generate_html_for_pdf(page):
     html_template = """<table width="900" style="font-family:tahoma, geneva, sans-serif;">
